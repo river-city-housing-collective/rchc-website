@@ -1,0 +1,18 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<section class="faq">
+	<ul>
+		{% for item in page.faq %}
+			<li><a href="#{{ item.question | slugify }}">{{ item.question }}</a></li>
+		{% endfor %}
+	</ul>
+
+	{% for item in page.faq %}
+		<h2 id="{{ item.question | slugify}}">{{ item.question }}</h2>
+		{{ item.answer | markdownify }}
+	{% endfor %}
+</section>
